@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Aquí agregas los comandos para construir tu proyecto, por ejemplo:
+                // sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Aquí agregas los comandos para ejecutar pruebas, por ejemplo:
+                // sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Aquí agregas los comandos para desplegar tu proyecto, por ejemplo:
+                // sh './deploy.sh'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'This will always run after the pipeline.'
+        }
+    }
+}
